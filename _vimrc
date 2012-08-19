@@ -42,6 +42,9 @@ Bundle 'vim-scripts/vimwiki'
 
 filetype plugin indent on
 
+" デフォルトでバックスラッシュだけど明示的に指定してみる
+let mapleader = "\"
+
 "===================================================================
 " folding
 "===================================================================
@@ -52,12 +55,14 @@ set foldmethod=marker
 " edit, view
 "===================================================================
 set autoindent
+set cindent
 set tabstop=4
 set shiftwidth=4
 set number
 set noruler
 set hlsearch
 set showcmd
+set nobackup
 
 " command history
 set history=1000
@@ -183,9 +188,9 @@ endfunction
 
 " ターミナルだと $MYVIMRC が空なのはなぜだろう…
 nnoremap <F5> :<C-u>execute ":source " vimrcbody<CR>
-\ :<C-u>execute ":source " gvimrcbody<CR>
 \ :call SourceIfExists('~/.vim/ftplugin/' . &filetype . '.vim')<CR>
 
+"\ :<C-u>execute ":source " gvimrcbody<CR>
 "===================================================================
 " デフォルトの文字コード
 "===================================================================
