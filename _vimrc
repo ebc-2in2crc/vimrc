@@ -445,7 +445,7 @@ function! s:enter_cmdwin()
   call altercmd#define('b', 'gr[ep]', 'Grep', 'i')
   " 下記の書き方でも良い
   " AlterCommand <buffer><mode:i> gr[ep] Grep
-  
+
   nnoremap <buffer> q :<C-u>quit<CR>
   nnoremap <buffer> <Tab> :<C-u>quit<CR>
 
@@ -496,7 +496,7 @@ function! s:MyFtpluginHtml()
 "    finish
 "  endif
 "  let b:did_ftplugin_html = 1
-  
+
   setlocal expandtab
   setlocal tabstop=2
   setlocal softtabstop=2
@@ -513,30 +513,30 @@ function! s:MyFtpluginJavaScript()
 "    finish
 "  endif
 "  let b:did_ftplugin_javascript = 1
-  
+
   setlocal expandtab
   setlocal tabstop=2
   setlocal softtabstop=2
   setlocal shiftwidth=2
-  
+
   "===================================================================
   " jslint.vim
   "===================================================================
   " 基本的に JSLint は無効にしておく
   " 明示的にコマンド実行時、またはファイル保存時のみ実行する
-  
+
   " 基本的に JSLint は無効にしておく
   let b:jslint_disabled = 1
-  
+
   function! JsLintRun()
     let b:jslint_disabled = 0
     execute 'JSLintUpdate'
     let b:jslint_disabled = 1
   endfunction
-  
+
   command! JsLintRunCommand call JsLintRun()
   nnoremap <Space>jl :<C-u>JsLintRunCommand<CR>:copen<CR>
-  
+
   augroup javascriptopen
     autocmd!
     autocmd BufWritePost <buffer> call JsLintRun()
@@ -553,7 +553,7 @@ function! s:MyFtpluginPython()
 "    finish
 "  endif
 "  let b:did_ftplugin_python = 1
-  
+
   setlocal expandtab
   setlocal tabstop=4
   setlocal softtabstop=4
@@ -564,7 +564,7 @@ function! s:MyFtpluginPython()
   "===================================================================
   " indent-guides を有効にする
   IndentGuidesEnable
-  
+
   "===================================================================
   " todo: GVim を導入したので自動カラーにしたいかもしれない
   "===================================================================
@@ -576,7 +576,7 @@ function! s:MyFtpluginPython()
   hi IndentGuidesOdd  ctermbg=2
   " 偶数インデントのガイドカラー
   hi IndentGuidesEven ctermbg=3
-  
+
   " ガイドカラーの変化の幅 (Terminal では未サポート)
   "let g:indent_guides_color_change_percent = 20
   " ガイドの幅
@@ -595,7 +595,7 @@ function! s:MyFtpluginVim()
 "    finish
 "  endif
 "  let b:did_ftplugin_vim = 1
-  
+
   " タブをスペースに展開したいけど、
   " スペース8個分のハードタブ + スペース4つの合わせ技が意外と多い…
   "setlocal expandtab
