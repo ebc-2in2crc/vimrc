@@ -393,8 +393,7 @@ autocmd! BufReadPost *
 "===================================================================
 augroup grepopen
   autocmd!
-  autocmd QuickFixCmdPost helpgrep copen
-  autocmd QuickFixCmdPost vimgrep copen
+  autocmd QuickFixCmdPost helpgrep,vimgrep copen
 augroup END
 
 "===================================================================
