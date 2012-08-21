@@ -160,7 +160,7 @@ set statusline+=%=%l/%L,%c%V%8P
 " http://www.slideshare.net/bleistift/vim-8362118
 "===================================================================
 let vimrcbody = '$HOME/.vimrc'
-let gvimrcbody = '$HOME/.gvimrc'
+"let gvimrcbody = '$HOME/.gvimrc'
 
 function! OpenFile(file)
   let empty_buffer = line('$') == 1 && strlen(getline('1')) == 0
@@ -172,9 +172,9 @@ function! OpenFile(file)
 endfunction
 
 command! OpenMyVimrc call OpenFile(vimrcbody)
-command! OpenMyGVimrc call OpenFile(gvimrcbody)
+"command! OpenMyGVimrc call OpenFile(gvimrcbody)
 nnoremap <Space><Space> :<C-u>OpenMyVimrc<CR>
-nnoremap <Space><Tab> :<C-u>OpenMyGVimrc<CR>
+"nnoremap <Space><Tab> :<C-u>OpenMyGVimrc<CR>
 
 "===================================================================
 " reloadable vimrc
