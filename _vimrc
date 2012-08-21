@@ -186,7 +186,7 @@ function! SourceIfExists(file)
   if filereadable(expand(a:file))
     execute 'source ' . a:file
   endif
-  echo 'Reloaded vimrc and gvimrc.'
+  echo 'Reloaded ' . a:file
 endfunction
 
 " ターミナルだと $MYVIMRC が空なのはなぜだろう…
