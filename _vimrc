@@ -43,7 +43,7 @@ Bundle 'vim-scripts/vimwiki'
 filetype plugin indent on
 
 " デフォルトでバックスラッシュだけど明示的に指定してみる
-let mapleader = "\"
+let mapleader = "\\"
 
 "===================================================================
 " folding
@@ -87,10 +87,10 @@ set hlsearch
 set noshowmatch
 
 " 検索にヒットした行をページ中央に表示
-nnoremap * *zz
-nnoremap # #zz
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap * *zzzv
+nnoremap # #zzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " keymap, move
 nnoremap j gj
