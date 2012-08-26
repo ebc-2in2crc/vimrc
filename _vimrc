@@ -43,8 +43,8 @@ Bundle 'vim-scripts/vimwiki'
 
 filetype plugin indent on
 
-" デフォルトでバックスラッシュだけど明示的に指定してみる
-let mapleader = "\\"
+" デフォルトのバックスラッシュを使う
+let mapleader = ""
 
 "===================================================================
 " folding
@@ -128,6 +128,9 @@ nnoremap Y y$
 " カーソル行をハイライト
 set cursorline
 
+" ヘルプを書くときだけ使う
+"colorcolumn=80
+
 " インサートモードの時はカーソル形状を変える
 " ※iTerm のようにカーソル形状を変えられるときだけ
 " (GVim だと勝手に変わってくれるのでターミナルの時だけ設定する)
@@ -144,6 +147,11 @@ if has('gui_running')
   " インサートモードに入るときの IME 制御は特にしない
   set imdisableactivate
 endif
+
+" turn off the alert
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
 
 "===================================================================
 " statusline
@@ -537,7 +545,7 @@ function! s:MyFtpluginJavaScript()
   endfunction
 
   command! JsLintRunCommand call JsLintRun()
-  nnoremap <Space>jl :<C-u>JsLintRunCommand<CR>:copen<CR>
+  nnoremap <buffer> <Space>jl :<C-u>JsLintRunCommand<CR>:copen<CR>
 
   augroup javascriptopen
     autocmd!
