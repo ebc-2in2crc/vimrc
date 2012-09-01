@@ -156,6 +156,9 @@ set visualbell t_vb=
 " MacBook Battery http://d.hatena.ne.jp/lurker/20060801/1154443551
 command! Battery echo split(system("pmset -g ps | egrep -o '[0-9]+%'"), "\n")[0]
 
+" Say supports
+command! Say silent execute '!say "' . escape(getline('.'), '"') . '" &>/dev/null &'
+
 "===================================================================
 " statusline
 "===================================================================
