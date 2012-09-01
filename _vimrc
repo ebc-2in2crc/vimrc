@@ -451,7 +451,7 @@ let g:ref_jquery_path = expand("~/.vim/bundle/vim-ref-jquery/jqapi-docs/")
 nnoremap <sid>(command-line-enter) q:
 xnoremap <sid>(command-line-enter) q:
 nnoremap <sid>(command-line-norange) q:<C-u>
-nnoremap q: q:<Esc>
+nnoremap q: q:<Esc>k
 
 nmap : <sid>(command-line-enter)
 xmap : <sid>(command-line-enter)
