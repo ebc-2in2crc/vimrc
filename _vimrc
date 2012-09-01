@@ -153,6 +153,9 @@ set noerrorbells
 set novisualbell
 set visualbell t_vb=
 
+" MacBook Battery http://d.hatena.ne.jp/lurker/20060801/1154443551
+command! Battery echo split(system("pmset -g ps | egrep -o '[0-9]+%'"), "\n")[0]
+
 "===================================================================
 " statusline
 "===================================================================
@@ -308,7 +311,6 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 let g:neocomplcache_snippets_dir = $HOME.'/.neocon-snippets'
 
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
 
 " 補完の取消
 inoremap <expr><C-g> neocomplcache#undo_completion()
