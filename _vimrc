@@ -123,6 +123,8 @@ inoremap <expr> <C-r>h% expand('%:p:h')
 
 " ヘルプを三倍の速さで引く
 nnoremap <C-h> :<C-u>help<Space>
+" カーソル下のキーワードでヘルプを引く
+nnoremap <Space>K :<C-u>help<Space><C-r><C-w><CR>
 
 " Yank to the end of line. (It is same as C and D)
 nnoremap Y y$
