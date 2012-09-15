@@ -87,7 +87,7 @@ set hlsearch
 " 対応する括弧へのジャンプ無効
 set noshowmatch
 
-" 検索にヒットした行をページ中央に表示
+" Current line at center of window and open the folding.
 nnoremap * *zzzv
 nnoremap # #zzzv
 nnoremap n nzzzv
@@ -124,7 +124,7 @@ inoremap <expr> <C-r>h% expand('%:p:h')
 " ヘルプを三倍の速さで引く
 nnoremap <C-h> :<C-u>help<Space>
 
-" カーソル位置から行末までヤンク
+" Yank to the end of line. (It is same as C and D)
 nnoremap Y y$
 
 " カーソル行をハイライト
