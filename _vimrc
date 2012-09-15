@@ -95,9 +95,11 @@ nnoremap N Nzzzv
 nnoremap g* g*zzzv
 nnoremap g# g#zzzv
 
-" keymap, move
+" Physical moving.
 nnoremap j gj
 nnoremap k gk
+noremap gj j
+noremap gk k
 
 " keymap, tab-page
 nnoremap <C-j> :<C-u>tabnext<CR>
