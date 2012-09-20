@@ -102,8 +102,8 @@ noremap gj j
 noremap gk k
 
 " keymap, tab-page
-nnoremap <C-j> :<C-u>tabnext<CR>
-nnoremap <C-k> :<C-u>tabprevious<CR>
+nnoremap <silent> <C-j> :<C-u>tabnext<CR>
+nnoremap <silent> <C-k> :<C-u>tabprevious<CR>
 "map <D-[> <Esc>:tabnext<CR>
 "map <D-]> <Esc>:tabprevious<CR>
 "map <D-j> <Esc>:tabnext<CR>
@@ -112,7 +112,7 @@ nnoremap <C-k> :<C-u>tabprevious<CR>
 "nnoremap <S-Tab> :tabprevious<CR>
 
 " 検索結果の強調表示をやめる
-nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
 " clipboard
 set clipboard=unnamed
