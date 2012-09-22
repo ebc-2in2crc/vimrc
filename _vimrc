@@ -501,7 +501,29 @@ augroup MyAutoCmd
   autocmd!
   autocmd CmdwinEnter * call s:enter_cmdwin()
   autocmd CmdwinLeave * call s:leave_cmdwin()
+  autocmd BufEnter * call s:enter_buffer()
 augroup END
+
+function! s:enter_buffer()
+  call s:diff_mode()
+endfunction
+
+function! s:diff_mode()
+  if !&diff
+    return
+  endif
+
+  nnoremap <buffer> qq :qa!<CR>
+  nnoremap <buffer> J ]c
+  nnoremap <buffer> K [c
+  nnoremap <buffer> H <C-w>h
+  nnoremap <buffer> L <C-w>l
+
+  if has('gui')
+    setlocal columns=156
+    wincmd =
+  endif
+endfunction
 
 "===================================================================
 " ftplugin setting {{{1
