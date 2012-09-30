@@ -39,6 +39,7 @@ Bundle 'vim-scripts/Javascript-Indentation'
 Bundle 'vim-scripts/MultipleSearch'
 Bundle 'vim-scripts/TwitVim'
 Bundle 'vim-scripts/vimwiki'
+"Bundle 'vim-scripts/Sorcerer'
 
 filetype plugin indent on
 
@@ -91,6 +92,8 @@ nnoremap * *zzzv
 nnoremap # #zzzv
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap g* g*zzzv
+nnoremap g# g#zzzv
 
 " keymap, move
 nnoremap j gj
