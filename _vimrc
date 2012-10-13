@@ -105,6 +105,7 @@ noremap gj j
 noremap gk k
 
 " keymap, tab-page
+set tabpagemax=20
 nnoremap <silent> <C-j> :<C-u>tabnext<CR>
 nnoremap <silent> <C-k> :<C-u>tabprevious<CR>
 "map <D-[> <Esc>:tabnext<CR>
@@ -442,8 +443,15 @@ let g:SrcExpl_gobackKey = '<BS>'
 " ref.vim
 "===================================================================
 " alc
-"nnoremap <Space>ra :<C-u>Ref alc<Space>
-"let g:ref_alc_start_linenumber = 40
+function! Alc()
+  let keyword = expand("<cword>")
+  execute "Ref alc " . keyword
+endfunction
+
+command! JAtoEN call Alc()
+nnoremap <Space>en :<C-u>JAtoEN<CR>
+nnoremap <Space>ra :<C-u>Ref alc<Space>
+let g:ref_alc_start_linenumber = 40
 
 " jquery
 nnoremap <Space>jq :<C-u>Ref jquery<Space>
