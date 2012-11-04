@@ -391,8 +391,8 @@ nnoremap <Space>ss :<C-u>SearchTwitter #TokyoVim<CR>
 "===================================================================
 nnoremap / :M/
 nnoremap ? :M?
-nnoremap ,/ /
-nnoremap ,? ?
+nnoremap ,/ /\v
+nnoremap ,? ?\v
 
 "===================================================================
 " jslint.vim
