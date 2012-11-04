@@ -389,10 +389,10 @@ nnoremap <Space>ss :<C-u>SearchTwitter #TokyoVim<CR>
 "===================================================================
 " eregex.vim
 "===================================================================
-nnoremap / :M/
-nnoremap ? :M?
-nnoremap ,/ /\v
-nnoremap ,? ?\v
+nnoremap ,/ :M/
+nnoremap ,? :M?
+nnoremap / /\v
+nnoremap ? ?\v
 
 "===================================================================
 " jslint.vim
