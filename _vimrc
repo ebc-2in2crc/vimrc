@@ -449,8 +449,8 @@ function! Alc()
   execute "Ref alc " . keyword
 endfunction
 
-command! JAtoEN call Alc()
-nnoremap <Space>en :<C-u>JAtoEN<CR>
+command! Def call Alc()
+nnoremap <Space>def :<C-u>Def<CR>
 nnoremap <Space>ra :<C-u>Ref alc<Space>
 let g:ref_alc_start_linenumber = 40
 
