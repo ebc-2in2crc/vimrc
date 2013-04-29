@@ -23,6 +23,8 @@ Bundle 'kana/vim-textobj-fold'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-lastpat'
 Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-operator-replace'
+Bundle 'kana/vim-operator-user'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/eregex.vim'
@@ -269,6 +271,11 @@ if has('gui_running')
   " ツールバー無し
   set guioptions-=T
 endif
+
+"===================================================================
+" vim-operator-replace
+"===================================================================
+map R <Plug>(operator-replace)
 
 "===================================================================
 " unite
