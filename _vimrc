@@ -35,6 +35,7 @@ Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/vim-altercmd'
 "Bundle 'vim-jp/vimdoc-ja'
+Bundle 'vim-scripts/chlordane.vim'
 Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/IndentAnything'
 Bundle 'vim-scripts/JavaScript-syntax'
@@ -231,9 +232,13 @@ syntax enable
 set background=dark
 "set background=light
 
-"let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-colorscheme solarized
+
+if has('gui_running')
+  colorscheme chlordane
+else
+  let g:solarized_contrast = "high"
+  colorscheme solarized
+endif
 "colorscheme desert
 
 "===================================================================
