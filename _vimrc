@@ -465,6 +465,16 @@ let g:ref_source_webdict_sites = {
 \      'url': 'http://eow.alc.co.jp/search?q=%s'
 \   },
 \ }
+let g:ref_source_webdict_sites.default = 'en_jp_dictionary'
+
+let g:ref_detect_filetype = {
+\   '_': 'webdict'
+\ }
+
+if !exists('g:ref_detect_filetype')
+  let g:ref_detect_filetype = {}
+endif
+let g:ref_detect_filetype['_'] = 'webdict'
 
 function! g:ref_source_webdict_sites.en_jp_dictionary.filter(output)
   return join(split(a:output, "\n")[38 :], "\n")
