@@ -471,6 +471,12 @@ nnoremap <Space>jq :<C-u>Ref jquery<Space>
 let g:ref_jquery_path = expand("~/.vim/bundle/vim-ref-jquery/jqapi-docs/")
 
 "===================================================================
+" quickrun
+"===================================================================
+let g:quickrun_config = {}
+let g:quickrun_config.groovy = {'command' : 'groovyclient'}
+
+"===================================================================
 " command-line window
 "
 " Hack #161: Command-line windowを使いこなす
