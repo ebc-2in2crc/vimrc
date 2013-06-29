@@ -477,7 +477,18 @@ endif
 let g:ref_detect_filetype['_'] = 'webdict'
 
 function! g:ref_source_webdict_sites.en_jp_dictionary.filter(output)
-  return join(split(a:output, "\n")[38 :], "\n")
+  let lines = split(a:output, "\n")
+  let lnum = 1
+
+  for line in lines
+    let result = stridx(line, 'データの転載')
+    if result != -1
+      break
+    endif
+    let lnum = lnum + 1
+  endfor
+
+  return join(split(a:output, "\n")[lnum :], "\n")
 endfunction
 
 command! Def call En2Jp()
