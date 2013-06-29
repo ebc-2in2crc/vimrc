@@ -452,9 +452,9 @@ let g:SrcExpl_gobackKey = '<BS>'
 "===================================================================
 " ref.vim
 "===================================================================
-function! En2Jp()
+function! RefWiki()
   let keyword = expand("<cword>")
-  execute "Ref webdict en_jp_dictionary " . keyword
+  execute "Ref webdict wikipedia:ja " . keyword
 endfunction
 
 let g:ref_source_webdict_sites = {
@@ -491,8 +491,8 @@ function! g:ref_source_webdict_sites.en_jp_dictionary.filter(output)
   return join(split(a:output, "\n")[lnum :], "\n")
 endfunction
 
-command! Def call En2Jp()
-nnoremap <Space>def :<C-u>Def<CR>
+command! Wiki call RefWiki()
+nnoremap <silent> <Space>wiki :<C-u>Wiki<CR>
 
 " jquery
 nnoremap <Space>jq :<C-u>Ref jquery<Space>
