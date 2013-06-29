@@ -452,16 +452,26 @@ let g:SrcExpl_gobackKey = '<BS>'
 "===================================================================
 " ref.vim
 "===================================================================
-" alc
-function! Alc()
+function! En2Jp()
   let keyword = expand("<cword>")
-  execute "Ref alc " . keyword
+  execute "Ref webdict en_jp_dictionary " . keyword
 endfunction
 
-command! Def call Alc()
+let g:ref_source_webdict_sites = {
+\   'wikipedia:ja': {
+\     'url': 'http://ja.wikipedia.org/wiki/%s'
+\   },
+\   'en_jp_dictionary': {
+\      'url': 'http://eow.alc.co.jp/search?q=%s'
+\   },
+\ }
+
+function! g:ref_source_webdict_sites.en_jp_dictionary.filter(output)
+  return join(split(a:output, "\n")[38 :], "\n")
+endfunction
+
+command! Def call En2Jp()
 nnoremap <Space>def :<C-u>Def<CR>
-nnoremap <Space>ra :<C-u>Ref alc<Space>
-let g:ref_alc_start_linenumber = 40
 
 " jquery
 nnoremap <Space>jq :<C-u>Ref jquery<Space>
