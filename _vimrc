@@ -501,8 +501,10 @@ let g:ref_jquery_path = expand("~/.vim/bundle/vim-ref-jquery/jqapi-docs/")
 "===================================================================
 " quickrun
 "===================================================================
-let g:quickrun_config = {}
-let g:quickrun_config.groovy = {'command' : 'groovyclient'}
+let g:quickrun_config = {
+\ 'groovy': {'command' : 'groovyclient'},
+\ '_': {'outputter/buffer/into' : 1,},
+\ }
 
 "===================================================================
 " command-line window
