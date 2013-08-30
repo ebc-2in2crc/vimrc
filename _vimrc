@@ -94,6 +94,9 @@ set hlsearch
 " 対応する括弧へのジャンプ無効
 set noshowmatch
 
+nnoremap / /\v
+nnoremap ? ?\v
+
 " Current line at center of window and open the folding.
 nnoremap * *zzzv
 nnoremap # #zzzv
@@ -404,8 +407,6 @@ let g:eregex_backward_delim = ',?'
 
 nnoremap g:eregex_forward_delim :M/
 nnoremap g:eregex_backward_delim :M?
-nnoremap / /\v
-nnoremap ? ?\v
 
 "===================================================================
 " jslint.vim
