@@ -399,8 +399,11 @@ nnoremap <Space>ss :<C-u>SearchTwitter #TokyoVim<CR>
 "===================================================================
 " eregex.vim
 "===================================================================
-nnoremap ,/ :M/
-nnoremap ,? :M?
+let g:eregex_forward_delim = ',/'
+let g:eregex_backward_delim = ',?'
+
+nnoremap g:eregex_forward_delim :M/
+nnoremap g:eregex_backward_delim :M?
 nnoremap / /\v
 nnoremap ? ?\v
 
