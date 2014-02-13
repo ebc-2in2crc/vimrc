@@ -25,6 +25,7 @@ Bundle 'kana/vim-textobj-lastpat'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-operator-replace'
 Bundle 'kana/vim-operator-user'
+Bundle 'LeafCage/yankround.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/eregex.vim'
@@ -284,6 +285,16 @@ endif
 " vim-operator-replace
 "===================================================================
 map R <Plug>(operator-replace)
+
+"===================================================================
+" yankround.vim
+"===================================================================
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+
+let g:yankround_max_history = 50
 
 "===================================================================
 " unite
