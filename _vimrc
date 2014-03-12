@@ -8,6 +8,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'cohama/the-ocamlspot.vim'
 Bundle 'Erlang-plugin-package'
 Bundle 'gmarik/vundle'
 Bundle 'gregsexton/gitv'
