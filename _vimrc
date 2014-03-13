@@ -668,6 +668,24 @@ endfunction
 autocmd FileType javascript call s:MyFtpluginJavaScript()
 
 "===================================================================
+" for JavaScript setting {{{2
+"===================================================================
+function! s:MyFtpluginOcaml()
+
+  setlocal expandtab
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
+
+  augroup ocamlopen
+    autocmd!
+  augroup END
+endfunction
+
+autocmd FileType ocaml call s:MyFtpluginOcaml()
+
+"===================================================================
+"
 " for Python setting {{{2
 "===================================================================
 function! s:MyFtpluginPython()
