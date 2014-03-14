@@ -129,7 +129,7 @@ nnoremap <silent> <C-k> :<C-u>tabprevious<CR>
 "nnoremap <S-Tab> :tabprevious<CR>
 
 " 検索結果の強調表示をやめる
-nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
 
 " clipboard
 set clipboard=unnamed
