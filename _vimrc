@@ -583,10 +583,21 @@ augroup MyAutoCmd
   autocmd CmdwinEnter * call s:enter_cmdwin()
   autocmd CmdwinLeave * call s:leave_cmdwin()
   autocmd BufEnter * call s:enter_buffer()
+  autocmd BufLeave * call s:Leave_buffer()
 augroup END
 
 function! s:enter_buffer()
   call s:diff_mode()
+
+  if &filetype=="python"
+    IndentGuidesEnable
+  endif
+endfunction
+
+function! s:Leave_buffer()
+  if &filetype=="python"
+    IndentGuidesDisable
+  endif
 endfunction
 
 function! s:diff_mode()
