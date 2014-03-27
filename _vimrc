@@ -465,11 +465,8 @@ let g:ref_source_webdict_sites = {
 \   'wikipedia:ja': {
 \     'url': 'http://ja.wikipedia.org/wiki/%s'
 \   },
-\   'en_jp_dictionary': {
-\      'url': 'http://eow.alc.co.jp/search?q=%s'
-\   },
 \ }
-let g:ref_source_webdict_sites.default = 'en_jp_dictionary'
+let g:ref_source_webdict_sites.default = 'wikipedia:ja'
 
 let g:ref_detect_filetype = {
 \   '_': 'webdict'
@@ -479,21 +476,6 @@ if !exists('g:ref_detect_filetype')
   let g:ref_detect_filetype = {}
 endif
 let g:ref_detect_filetype['_'] = 'webdict'
-
-function! g:ref_source_webdict_sites.en_jp_dictionary.filter(output)
-  let lines = split(a:output, "\n")
-  let lnum = 1
-
-  for line in lines
-    let result = stridx(line, 'データの転載')
-    if result != -1
-      break
-    endif
-    let lnum = lnum + 1
-  endfor
-
-  return join(split(a:output, "\n")[lnum :], "\n")
-endfunction
 
 command! Wiki call RefWiki()
 nnoremap <silent> <Space>wiki :<C-u>Wiki<CR>
