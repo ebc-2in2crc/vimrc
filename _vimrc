@@ -749,10 +749,10 @@ function! s:MyFtpluginVim()
 
   " タブをスペースに展開したいけど、
   " スペース8個分のハードタブ + スペース4つの合わせ技が意外と多い…
-  "setlocal expandtab
-  setlocal tabstop=8
-  setlocal softtabstop=8
-  setlocal shiftwidth=8
+  setlocal expandtab
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
 endfunction
 
 autocmd FileType vim call s:MyFtpluginVim()
