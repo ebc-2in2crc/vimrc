@@ -503,10 +503,6 @@ let g:ref_source_webdict_sites = {
 \ }
 let g:ref_source_webdict_sites.default = 'wikipedia:ja'
 
-let g:ref_detect_filetype = {
-\   '_': 'webdict'
-\ }
-
 if !exists('g:ref_detect_filetype')
   let g:ref_detect_filetype = {}
 endif
