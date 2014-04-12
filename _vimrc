@@ -239,16 +239,17 @@ set encoding=utf-8
 "===================================================================
 syntax enable
 set background=dark
-"set background=light
 
-
-if has('gui_running')
-  colorscheme chlordane
+if filereadable(expand("~/.vim_colorscheme.vim"))
+  source ~/.vim_colorscheme.vim
 else
-  let g:solarized_contrast = "high"
-  colorscheme solarized
+  if has('gui_running')
+    colorscheme hybrid
+  else
+    let g:solarized_contrast = "high"
+    colorscheme solarized
+  endif
 endif
-"colorscheme desert
 
 "===================================================================
 " font setting
