@@ -522,6 +522,11 @@ let g:ref_jquery_path = expand("~/.vim/bundle/vim-ref-jquery/jqapi-docs/")
 "===================================================================
 let g:quickrun_config = {
 \ 'groovy': {'command' : 'groovyclient'},
+\ 'java': {
+\   'command' : 'java',
+\   'exec': ['javac %s', '%c %o %s:t:r %a'],
+\   'cmdopt' : '-ea:...'
+\ },
 \ '_': {'outputter/buffer/into' : 1,},
 \ }
 
