@@ -642,6 +642,20 @@ endfunction
 autocmd FileType html call s:MyFtpluginHtml()
 
 "===================================================================
+" for Groovy setting {{{2
+"===================================================================
+function! s:MyFtpluginGroovy()
+
+  setlocal expandtab
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
+endfunction
+
+autocmd FileType groovy call s:MyFtpluginGroovy()
+autocmd BufRead,BufNewFile *.gradle set filetype=groovy
+
+"===================================================================
 " for JavaScript setting {{{2
 "===================================================================
 function! s:MyFtpluginJavaScript()
