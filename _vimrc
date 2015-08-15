@@ -9,12 +9,9 @@ call vundle#rc()
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'cohama/the-ocamlspot.vim'
-Bundle 'Erlang-plugin-package'
 Bundle 'gmarik/vundle'
 Bundle 'gregsexton/gitv'
 Bundle 'ebc-2in2crc/vim-ref-jvmis'
-Bundle 'hallettj/jslint.vim'
-Bundle 'jonathanfilip/vim-lucius'
 Bundle 'kana/vim-operator-replace'
 Bundle 'kana/vim-operator-user'
 Bundle 'kana/vim-smartinput'
@@ -24,7 +21,6 @@ Bundle 'kana/vim-textobj-lastpat'
 Bundle 'kana/vim-textobj-user'
 Bundle 'LeafCage/yankround.vim'
 Bundle 'mattn/zencoding-vim'
-Bundle 'nanotech/jellybeans.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/eregex.vim'
 Bundle 'Shougo/neocomplcache'
@@ -40,14 +36,10 @@ Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/vim-altercmd'
-Bundle 'vim-scripts/chlordane.vim'
 Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/IndentAnything'
 Bundle 'vim-scripts/Javascript-Indentation'
 Bundle 'vim-scripts/JavaScript-syntax'
-Bundle 'vim-scripts/molokai'
-Bundle 'vim-scripts/MultipleSearch'
-Bundle 'vim-scripts/newspaper.vim'
 Bundle 'vim-scripts/TwitVim'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'w0ng/vim-hybrid'
@@ -446,13 +438,6 @@ nnoremap g:eregex_forward_delim :M/
 nnoremap g:eregex_backward_delim :M?
 
 "===================================================================
-" jslint.vim
-"===================================================================
-" 基本的に JSLint は無効にしておく
-" 明示的にコマンド実行時、またはファイル保存時のみ実行する
-" (この設定は Additional ftplugin で行う)
-
-"===================================================================
 " matchit
 "===================================================================
 source $VIMRUNTIME/macros/matchit.vim
@@ -669,28 +654,6 @@ function! s:MyFtpluginJavaScript()
   setlocal softtabstop=2
   setlocal shiftwidth=2
 
-  "===================================================================
-  " jslint.vim
-  "===================================================================
-  " 基本的に JSLint は無効にしておく
-  " 明示的にコマンド実行時、またはファイル保存時のみ実行する
-
-  " 基本的に JSLint は無効にしておく
-  let b:jslint_disabled = 1
-
-  function! JsLintRun()
-    let b:jslint_disabled = 0
-    execute 'JSLintUpdate'
-    let b:jslint_disabled = 1
-  endfunction
-
-  command! JsLintRunCommand call JsLintRun()
-  nnoremap <buffer> <Space>jl :<C-u>JsLintRunCommand<CR>:copen<CR>
-
-  augroup javascriptopen
-    autocmd!
-    autocmd BufWritePost <buffer> call JsLintRun()
-  augroup END
 endfunction
 
 autocmd FileType javascript call s:MyFtpluginJavaScript()
