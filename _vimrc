@@ -226,6 +226,7 @@ nnoremap <F5> :<C-u>execute ":source " vimrcbody<CR>
 " デフォルトの文字コード
 "===================================================================
 set encoding=utf-8
+scriptencoding utf-8
 
 "===================================================================
 " color setting
@@ -659,7 +660,7 @@ endfunction
 autocmd FileType javascript call s:MyFtpluginJavaScript()
 
 "===================================================================
-" for JavaScript setting {{{2
+" for OCaml setting {{{2
 "===================================================================
 function! s:MyFtpluginOcaml()
 
