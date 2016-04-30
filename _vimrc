@@ -40,7 +40,6 @@ Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/IndentAnything'
 Bundle 'vim-scripts/Javascript-Indentation'
 Bundle 'vim-scripts/JavaScript-syntax'
-Bundle 'vim-scripts/TwitVim'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'w0ng/vim-hybrid'
 
@@ -409,25 +408,6 @@ autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
 let g:vimfiler_safe_mode_by_default = 0
 " vimfiler 起動
 nnoremap <Space>f :<C-u>VimFiler<CR>
-
-"===================================================================
-" Twitvim
-"===================================================================
-let twitvim_count = 40
-let twitvim_browser_cmd = "open -a 'Google Chrome'"
-let twitvim_filter_enable = 0
-nnoremap <Space>tt :<C-u>PosttoTwitter<CR>
-nnoremap <Space>tf :<C-u>FriendsTwitter<CR><Esc><C-w><C-w>
-nnoremap <Space>tu :<C-u>UserTwitter<CR><Esc><C-w><C-w>
-nnoremap <Space>tr :<C-u>MentionsTwitter<CR><Esc><C-w><C-w>
-nnoremap <Space>td :<C-u>DMTwitter<CR><C-w><C-w>
-nnoremap <Space>ts :<C-u>DMSentTwitter<CR><C-w><C-w>
-nnoremap <Space>tn :<C-u>NextTwitter<CR>
-nnoremap <Space>tp :<C-u>PreviousTwitter<CR>
-nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR><C-w><C-w>
-
-" Search #TokyoVim
-nnoremap <Space>ss :<C-u>SearchTwitter #TokyoVim<CR>
 
 "===================================================================
 " eregex.vim
