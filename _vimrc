@@ -41,7 +41,6 @@ Bundle 'vim-scripts/IndentAnything'
 Bundle 'vim-scripts/Javascript-Indentation'
 Bundle 'vim-scripts/JavaScript-syntax'
 Bundle 'vim-scripts/vimwiki'
-Bundle 'w0ng/vim-hybrid'
 
 filetype plugin indent on
 
@@ -237,7 +236,7 @@ if filereadable(expand("~/.vim_colorscheme.vim"))
   source ~/.vim_colorscheme.vim
 else
   if has('gui_running')
-    colorscheme hybrid
+    colorscheme solarized
   else
     let g:solarized_contrast = "high"
     colorscheme solarized
