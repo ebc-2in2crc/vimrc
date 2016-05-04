@@ -7,6 +7,7 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
+Bundle 'atelierbram/vim-colors_duotones'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'cohama/the-ocamlspot.vim'
 Bundle 'gmarik/vundle'
@@ -23,7 +24,7 @@ Bundle 'LeafCage/yankround.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/eregex.vim'
-Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler'
@@ -342,58 +343,47 @@ nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 "===================================================================
-" neocomplcache
+" neocomplete
 "===================================================================
-" Use neocompcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use ignorecase
-let g:neocomplcache_enable_ignore_case = 1
-" Use smartcase
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion (Have side effects)
-"let g:neocomplcache_enable_camel_case_completion
-" Use underbar completion (Have side effects)
-"let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define keyword
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+"imap <expr><C-k> neocomplete#sources#snippets_complete#expandable() ? "\<Plug>(neocomplete_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" 補完の取消
-inoremap <expr><C-g> neocomplcache#undo_completion()
-" シェルっぽい補完
-"inoremap <expr><C-l> neocomplcache#complete_common_string()
-" 1番目の候補を自動選択
-let g:neocomplcache_enable_auto_select = 1
-" 補完候補が表示されている場合は確定。そうでない場合は改行
-inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
+
+inoremap <silent><CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  "return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+
 " 補完をキャンセル
-inoremap <expr><C-e>  neocomplcache#close_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup() . "\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup() . "\<C-h>"
+
 " <TAB> completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup() . "\<C-h>"
 
-" Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" JS omnifunc: jscomplete-vim#CompleteJS
-" JavaScript の補完には jscomplete-vim を使用する
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
 "===================================================================
@@ -519,17 +509,15 @@ function! s:enter_cmdwin()
   nnoremap <buffer> q :<C-u>quit<CR>
   nnoremap <buffer> <Tab> :<C-u>quit<CR>
 
-  inoremap <buffer><expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
-  inoremap <buffer><expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
-  inoremap <buffer><expr><BS> neocomplcache#smart_close_popup() . "\<C-h>"
+  inoremap <buffer><expr><C-h> neocomplete#smart_close_popup() . "\<C-h>"
+  inoremap <buffer><expr><BS> neocomplete#smart_close_popup() . "\<C-h>"
   inoremap <buffer> <C-c> <Esc>
 
   " Completion
   inoremap <buffer><expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
   " 自動補完されると q みたいな短いコマンドが打ちにくいので
-  " neocomplcache の動作する文字列長を調整
-  NeoComplCacheAutoCompletionLength 2
+  " neocomplete の動作する文字列長を調整
 
   " Source Explorer がウザいので動かないようにする
   "let s:update_time = &updatetime
