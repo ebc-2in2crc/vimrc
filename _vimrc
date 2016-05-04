@@ -91,6 +91,8 @@ set hlsearch
 " 対応する括弧へのジャンプ無効
 set noshowmatch
 
+set noundofile
+
 nnoremap / /\v
 nnoremap ? ?\v
 
