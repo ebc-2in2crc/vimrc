@@ -30,7 +30,6 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimfiler'
 Plugin 'Shougo/vimproc'
-Plugin 'soh335/vim-ref-jquery'
 Plugin 'Source-Explorer-srcexpl.vim'
 Plugin 'thinca/vim-quickrun'
 Plugin 'thinca/vim-ref'
@@ -39,8 +38,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tyru/vim-altercmd'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'vim-scripts/IndentAnything'
-Plugin 'vim-scripts/Javascript-Indentation'
-Plugin 'vim-scripts/JavaScript-syntax'
 Plugin 'vim-scripts/vimwiki'
 
 call vundle#end()
@@ -386,12 +383,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-
-"===================================================================
-" jscomplete-vim
-"===================================================================
-" JavaScirpt の omnifunc を設定する
-autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
 
 "===================================================================
 " vimfiler
