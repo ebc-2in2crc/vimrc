@@ -490,9 +490,6 @@ xnoremap <sid>(command-line-enter) q:
 nnoremap <sid>(command-line-norange) q:<C-u>
 nnoremap q: q:<Esc>k
 
-nmap : <sid>(command-line-enter)
-xmap : <sid>(command-line-enter)
-
 function! s:enter_cmdwin()
   call altercmd#define('b', 'gr[ep]', 'Grep', 'i')
   " 下記の書き方でも良い
