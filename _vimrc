@@ -260,9 +260,9 @@ if has('win32')
   endif
 elseif has('gui_macvim')
 "  set guifont=Osaka-Mono:h14
-  set guifont=Ricty\ Discord:h18
+  set guifont=Myrica\ Monospace:h18
 elseif has('mac')
-  set guifont=Ricty\ Discord:h18
+  set guifont=Myrica\ Monospace:h18
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
