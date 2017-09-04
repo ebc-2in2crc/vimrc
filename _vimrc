@@ -14,6 +14,7 @@ Plugin 'cohama/the-ocamlspot.vim'
 Plugin 'gmarik/vundle'
 Plugin 'gregsexton/gitv'
 Plugin 'ebc-2in2crc/vim-ref-jvmis'
+Plugin 'fatih/vim-go'
 Plugin 'kana/vim-operator-replace'
 Plugin 'kana/vim-operator-user'
 Plugin 'kana/vim-smartinput'
@@ -383,6 +384,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
 
 "===================================================================
 " vimfiler
