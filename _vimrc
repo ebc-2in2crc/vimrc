@@ -10,7 +10,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'atelierbram/vim-colors_duotones'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'cohama/the-ocamlspot.vim'
 Plugin 'gmarik/vundle'
 Plugin 'gregsexton/gitv'
 Plugin 'ebc-2in2crc/vim-ref-jvmis'
@@ -298,12 +297,6 @@ map R <Plug>(operator-replace)
 " vim-smartinput
 "===================================================================
 call smartinput#map_to_trigger('i', '*', '*', '*')
-call smartinput#define_rule({
-            \   'at'       : '(\%#',
-            \   'char'     : '*',
-            \   'input'    : '*  *<Left><Left>',
-            \   'filetype' : ['ocaml'],
-            \   })
 
 "===================================================================
 " yankround.vim
@@ -618,23 +611,6 @@ function! s:MyFtpluginJavaScript()
 endfunction
 
 autocmd FileType javascript call s:MyFtpluginJavaScript()
-
-"===================================================================
-" for OCaml setting {{{2
-"===================================================================
-function! s:MyFtpluginOcaml()
-
-  setlocal expandtab
-  setlocal tabstop=2
-  setlocal softtabstop=2
-  setlocal shiftwidth=2
-
-  augroup ocamlopen
-    autocmd!
-  augroup END
-endfunction
-
-autocmd FileType ocaml call s:MyFtpluginOcaml()
 
 "===================================================================
 "
