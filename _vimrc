@@ -8,12 +8,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'atelierbram/vim-colors_duotones'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'gmarik/vundle'
-Plugin 'gregsexton/gitv'
-Plugin 'ebc-2in2crc/vim-ref-jvmis'
-Plugin 'fatih/vim-go'
 Plugin 'kana/vim-operator-replace'
 Plugin 'kana/vim-operator-user'
 Plugin 'kana/vim-smartinput'
@@ -30,13 +26,8 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimfiler'
 Plugin 'Shougo/vimproc'
-Plugin 'Source-Explorer-srcexpl.vim'
-Plugin 'thinca/vim-quickrun'
-Plugin 'thinca/vim-ref'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tyru/vim-altercmd'
-Plugin 'vim-scripts/DrawIt'
 Plugin 'vim-scripts/IndentAnything'
 Plugin 'vim-scripts/vimwiki'
 
@@ -269,14 +260,6 @@ elseif has('xfontset')
 endif
 
 "===================================================================
-" gitv
-"===================================================================
-augroup git
-  autocmd!
-  autocmd FileType git :setlocal foldlevel=99
-augroup END
-
-"===================================================================
 " window setting
 "===================================================================
 if has('gui_running')
@@ -422,59 +405,6 @@ augroup END
 autocmd BufWritePost *.wiki silent Vimwiki2HTML
 
 "===================================================================
-" Source Explorer
-"===================================================================
-" 自動でプレビュー表示
-let g:SrcExpl_refreshTime = 100
-" プレビューウィンドウの高さ
-let g:SrcExpl_winHeight = 9
-" tags ファイルを自動で生成する
-let g:SrcExpl_isUpdateTags = 1
-" 定義への移動、戻るキー
-let g:SrcExpl_jumpKey = '<CR>'
-let g:SrcExpl_gobackKey = '<BS>'
-
-"===================================================================
-" ref.vim
-"===================================================================
-function! RefWiki()
-  let keyword = expand("<cword>")
-  execute "Ref webdict wikipedia:ja " . keyword
-endfunction
-
-let g:ref_source_webdict_sites = {
-\   'wikipedia:ja': {
-\     'url': 'http://ja.wikipedia.org/wiki/%s'
-\   },
-\ }
-let g:ref_source_webdict_sites.default = 'wikipedia:ja'
-
-if !exists('g:ref_detect_filetype')
-  let g:ref_detect_filetype = {}
-endif
-let g:ref_detect_filetype['_'] = 'webdict'
-
-command! Wiki call RefWiki()
-nnoremap <silent> <Space>wiki :<C-u>Wiki<CR>
-
-" jquery
-nnoremap <Space>jq :<C-u>Ref jquery<Space>
-let g:ref_jquery_path = expand("~/.vim/bundle/vim-ref-jquery/jqapi-docs/")
-
-"===================================================================
-" quickrun
-"===================================================================
-let g:quickrun_config = {
-\ 'groovy': {'command' : 'groovyclient'},
-\ 'java': {
-\   'command' : 'java',
-\   'exec': ['javac %s', '%c %o %s:t:r %a'],
-\   'cmdopt' : '-ea:...'
-\ },
-\ '_': {'outputter/buffer/into' : 1,},
-\ }
-
-"===================================================================
 " command-line window
 "
 " Hack #161: Command-line windowを使いこなす
@@ -503,21 +433,10 @@ function! s:enter_cmdwin()
   " 自動補完されると q みたいな短いコマンドが打ちにくいので
   " neocomplete の動作する文字列長を調整
 
-  " Source Explorer がウザいので動かないようにする
-  "let s:update_time = &updatetime
-  if !exists(g:SrcExpl_refreshTime)
-    let s:update_time = g:SrcExpl_refreshTime
-  else
-    let s:update_time = &updatetime
-  endif
-  set updatetime=100000
-
   startinsert!
 endfunction
 
 function! s:leave_cmdwin()
-  " Source Explorer を再動作させる
-  exe "set updatetime=" . string(s:update_time)
 endfunction
 
 augroup MyAutoCmd
