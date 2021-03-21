@@ -532,6 +532,21 @@ endfunction
 
 autocmd FileType javascript call s:MyFtpluginJavaScript()
 
+function! s:MyFtpluginYaml()
+"  if exists("b:did_ftplugin_yaml")
+"    finish
+"  endif
+"  let b:did_ftplugin_yaml = 1
+
+  setlocal expandtab
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
+
+endfunction
+
+autocmd FileType yaml call s:MyFtpluginYaml()
+
 "===================================================================
 "
 " for Python setting {{{2
